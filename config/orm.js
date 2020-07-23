@@ -12,6 +12,7 @@ const orm = {
     });
   },
 
+// insert new burger
   create: (table, newRowData, cb) => {
     const queryString = "INSERT INTO ?? SET ?";
     const values = [table, newRowData];
@@ -23,7 +24,7 @@ const orm = {
       cb(result);
     });
   },
-
+// update devouring of burger
   update: (table, updateValues, condition, cb) => {
     const queryString = "UPDATE ?? SET ? WHERE ?";
     const values = [table, updateValues, condition];
@@ -38,3 +39,5 @@ const orm = {
   },
 
 };
+// export
+module.exports = orm.js;

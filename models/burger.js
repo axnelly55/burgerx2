@@ -2,21 +2,18 @@
 const orm = require("../config/orm.js");
 
 const burger = {
-    all: (cb) => {
-        orm.all("burgers", (res) => {
+    all: function(cb) {
+        orm.all("burgers", function(res) {
             cb(res);
         });
     },
     // The variables cols and vals are arrays.
     create: (newBurger, cb) => {
-        orm.create("burgers", newBurger, (res) => {
-            cb(res);
-        });
+        orm.create("burgers", ["burger_name", "devoured"] [newBurger, false], cb)
     },
-    update: (BurgerData, criteria, cb) => {
-        orm.update("burgers", BurgerData, criteria, (res) => {
-            cb(res);
-        });
+
+    update: (burgerId, cb) => {
+        orm.update("burgers", {devoured: true}, "id="+burgerId, cb);
     },
 };
 
